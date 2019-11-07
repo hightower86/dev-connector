@@ -1,0 +1,8 @@
+const router = require('express').Router();
+
+// @route    GET api/profile
+// @descr    Test route
+// @access   Public
+router.get('/', (req, res) => res.send('Profile route'));
+
+module.exports = router;
