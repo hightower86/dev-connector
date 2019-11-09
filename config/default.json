@@ -1,3 +1,4 @@
 {
-  "mongoUri": "mongodb+srv://adel:1q2w3e4r@cluster0-mpyfv.mongodb.net/hockey-connector?retryWrites=true&w=majority"
+  "mongoUri": "mongodb+srv://adel:1q2w3e4r@cluster0-mpyfv.mongodb.net/hockey-connector?retryWrites=true&w=majority",
+  "jwtSecret": "MySecretToken"
 }
