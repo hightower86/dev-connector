@@ -1,4 +1,6 @@
 {
   "mongoUri": "mongodb+srv://adel:1q2w3e4r@cluster0-mpyfv.mongodb.net/dev-connector?retryWrites=true&w=majority",
-  "jwtSecret": "MySecretToken"
+  "jwtSecret": "MySecretToken",
+  "githubClientId": "1a4af7f209a7a899fcbf",
+  "githubClientSecret": "196bfe23d1506a499131120d15fdf3fb86db6fbb"
 }
