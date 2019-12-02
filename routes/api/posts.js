@@ -42,4 +42,17 @@ router.post(
   }
 );
 
+// @route    GET api/posts
+// @descr    Get all posts
+// @access   Public
+
+router.get('/', async (req, res) => {
+  try {
+    const posts = await Post.find();
+    res.send(posts);
+  } catch (err) {
+    res.status(500).send('Server error');
+  }
+});
+
 module.exports = router;
