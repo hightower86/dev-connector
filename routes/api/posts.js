@@ -44,14 +44,38 @@ router.post(
 
 // @route    GET api/posts
 // @descr    Get all posts
-// @access   Public
+// @access   Private
 
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
   try {
-    const posts = await Post.find();
-    res.send(posts);
+    const posts = await Post.find().sort({ date: -1 });
+    res.json(posts);
   } catch (err) {
+    console.error(err.message);
     res.status(500).send('Server error');
+  }
+});
+
+// @route    DELETE api/posts/:id
+// @descr    Delete users posts
+// @access   Private
+
+router.delete('/:id', auth, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (!post) {
+      return res.status(404).json({ msg: 'Post not found' });
+    }
+
+    await post.remove();
+
+    res.json({ msg: 'POst removed' });
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return res.status(404).json({ msg: 'Post not found' });
+    }
+    err.status(500).send('Server error');
   }
 });
 
