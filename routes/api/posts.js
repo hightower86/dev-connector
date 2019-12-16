@@ -145,4 +145,57 @@ router.put('/unlike/:id', auth, async (req, res) => {
   }
 });
 
+// @route    POST api/posts/comments/:id
+// @descr    add comment
+// @access   Private
+router.put(
+  '/comment/:id',
+  [
+    auth,
+    [
+      check('text', 'text is reaquired')
+        .not()
+        .isEmpty()
+    ]
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    try {
+      const user = await User.findById(req.user.id).select('-password');
+      const post = await Post.findById(req.params.id);
+      if (!post) {
+        return res.status(404).json({ msg: 'Post not found' });
+      }
+
+      const newComment = {
+        text: req.body.text,
+        name: user.name,
+        avatar: user.avatar,
+        user: req.user.id
+      };
+
+      // check if the post has already liked
+      // if (
+      //   post.comments.filter(comment => comment.user.toString() === req.user.id)
+      //     .length > 0
+      // ) {
+      //   return res.status(400).json({ msg: 'The post already liked' });
+      // }
+
+      post.comments.unshift(newComment);
+
+      await post.save();
+      res.json(post.comments);
+    } catch (err) {
+      console.error(err.message);
+      if (err.kind === 'ObjectId') {
+        return res.status(404).json({ msg: 'Post not found' });
+      }
+      err.status(500).send('Server error');
+    }
+  }
+);
 module.exports = router;
