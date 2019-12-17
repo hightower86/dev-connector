@@ -13,8 +13,12 @@ const App = () => {
       <Fragment>
         <Navbar className='' />
         <Route exact path='/' component={Landing} />
-        <Route path='/login' component={Login} />
-        <Route path='/register' component={Register} />
+        <section className='container mx-auto'>
+          <Switch>
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/register' component={Register} />
+          </Switch>
+        </section>
       </Fragment>
     </Router>
   );

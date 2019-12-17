@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Landing = () => {
   return (
@@ -10,8 +11,12 @@ const Landing = () => {
           other developers
         </p>
         <div className='flex self-center mt-2'>
-          <button className='py-1 px-4 m-1 bg-green-400'>Sign Up</button>
-          <button className='py-1 px-4 m-1 bg-white'>Login</button>
+          <Link to='/register'>
+            <button className='py-1 px-4 m-1 bg-green-400'>Sign Up</button>
+          </Link>
+          <Link to='/login'>
+            <button className='py-1 px-4 m-1 bg-white'>Login</button>
+          </Link>
         </div>
       </div>
     </div>

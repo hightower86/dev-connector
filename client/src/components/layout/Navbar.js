@@ -5,16 +5,18 @@ const Navbar = () => {
   return (
     <div className='w-full p-4 bg-gray-500'>
       <nav className='flex justify-between'>
-        <h2 className=' text-lg'>Logo</h2>
+        <h2 className=' text-lg'>
+          <Link to='/'>Logo</Link>
+        </h2>
         <ul className=' flex items-center '>
           <li className='mr-3 uppercase tracking-wide hover:text-white cursor-pointer'>
-            Developers
+            <Link to='!#'>Developers</Link>
           </li>
           <li className='mr-3 uppercase tracking-wide hover:text-white cursor-pointer'>
-            Register
+            <Link to='/register'>Register</Link>
           </li>
           <li className='mr-3 uppercase tracking-wide hover:text-white cursor-pointer'>
-            Login
+            <Link to='/login'>Login</Link>
           </li>
         </ul>
       </nav>
