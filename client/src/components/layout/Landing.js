@@ -9,9 +9,9 @@ const Landing = () => {
           Create a developer profile/portfolio, share posts and get help from
           other developers
         </p>
-        <div className='flex self-center'>
-          <button className='py-1 px-4 m-3 bg-green-400'>Sign Up</button>
-          <button className='py-1 px-4 m-3 bg-white'>Login</button>
+        <div className='flex self-center mt-2'>
+          <button className='py-1 px-4 m-1 bg-green-400'>Sign Up</button>
+          <button className='py-1 px-4 m-1 bg-white'>Login</button>
         </div>
       </div>
     </div>
