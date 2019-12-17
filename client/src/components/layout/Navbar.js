@@ -6,14 +6,14 @@ const Navbar = () => {
       <nav className='flex justify-between'>
         <h2 className=' text-lg'>Logo</h2>
         <ul className=' flex items-center '>
-          <li className='mr-3 uppercase tracking-wide hover:bg-gray-500'>
-            Home
+          <li className='mr-3 uppercase tracking-wide hover:text-white cursor-pointer'>
+            Developers
           </li>
-          <li className='mr-3 uppercase tracking-wide hover:bg-gray-500'>
-            About
+          <li className='mr-3 uppercase tracking-wide hover:text-white cursor-pointer'>
+            Register
           </li>
-          <li className='mr-3 uppercase tracking-wide hover:bg-gray-500'>
-            Contacts
+          <li className='mr-3 uppercase tracking-wide hover:text-white cursor-pointer'>
+            Login
           </li>
         </ul>
       </nav>

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import './css/tailwind.css';
 
 import Navbar from './components/layout/Navbar';
