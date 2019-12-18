@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import axios from 'axios';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -13,12 +14,28 @@ const Register = () => {
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
     if (password !== password2) {
       console.log('Passwords do not match');
     } else {
-      console.log(formData);
+      const newUser = {
+        name,
+        email,
+        password
+      };
+
+      try {
+        const config = { headers: { 'Content-Type': 'application/json' } };
+
+        const body = JSON.stringify(newUser);
+
+        const res = await axios.post('/api/users', body, config);
+
+        console.log(res.data);
+      } catch (err) {
+        console.log(err.response.data);
+      }
     }
   };
 
@@ -33,7 +50,10 @@ const Register = () => {
         </h2>
         <div className='md:flex md:items-center mb-6'>
           <input
-            className='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500  shadow-md'
+            className='bg-gray-200 appearance-none border-2 
+            border-gray-200 rounded w-full py-2 px-4 text-gray-700 
+            leading-tight focus:outline-none focus:bg-white 
+            focus:border-teal-500  shadow-md'
             name='name'
             type='text'
             value={name}
@@ -45,7 +65,10 @@ const Register = () => {
         </div>
         <div className='mb-4'>
           <input
-            className='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500  shadow-md'
+            className='bg-gray-200 appearance-none border-2 
+            border-gray-200 rounded w-full py-2 px-4 
+            text-gray-700 leading-tight focus:outline-none 
+            focus:bg-white focus:border-teal-500  shadow-md'
             name='email'
             value={email}
             type='text'
@@ -60,7 +83,10 @@ const Register = () => {
         </div>
         <div className='md:flex md:items-center mb-6'>
           <input
-            className='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500  shadow-md'
+            className='bg-gray-200 appearance-none border-2 
+            border-gray-200 rounded w-full py-2 px-4 
+            text-gray-700 leading-tight focus:outline-none 
+            focus:bg-white focus:border-teal-500  shadow-md'
             name='password'
             type='password'
             value={password}
@@ -71,7 +97,11 @@ const Register = () => {
         </div>
         <div className='md:flex md:items-center mb-6'>
           <input
-            className='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 shadow-md'
+            className='bg-gray-200 appearance-none border-2 
+            border-gray-200 rounded w-full py-2 px-4 
+            text-gray-700 leading-tight 
+            focus:outline-none focus:bg-white 
+            focus:border-teal-500 shadow-md'
             name='password2'
             type='password'
             value={password2}
@@ -85,7 +115,9 @@ const Register = () => {
           <div className='md:w-1/3'></div>
           <div className='md:w-2/3'>
             <button
-              className='shadow  bg-teal-500 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-1 px-3 rounded'
+              className='shadow  bg-teal-500 hover:bg-teal-400 
+              focus:shadow-outline focus:outline-none text-white 
+              py-2 px-3 rounded'
               type='submit'
             >
               Register
