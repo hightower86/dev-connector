@@ -9,32 +9,62 @@ const Register = () => {
   });
 
   const { name, email, password, password2 } = formData;
+
+  const onChange = e =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onSubmit = e => {
+    e.preventDefault();
+    if (password !== password2) {
+      console.log('Passwords do not match');
+    } else {
+      console.log(formData);
+    }
+  };
+
   return (
     <Fragment>
-      <form className='container mx-auto mt-10 w-full max-w-sm'>
+      <form
+        className='container mx-auto mt-10 w-full max-w-sm'
+        onSubmit={e => onSubmit(e)}
+      >
+        <h2 className='text-3xl mb-6 text-center text-gray-600'>
+          Register a new User
+        </h2>
         <div className='md:flex md:items-center mb-6'>
           <input
             className='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500  shadow-md'
-            id='inline-full-name'
+            name='name'
             type='text'
             value={name}
             placeholder='Name'
+            onChange={e => onChange(e)}
+            required
           />
           {/* </div> */}
         </div>
-        <div className='md:flex md:items-center mb-6'>
+        <div className='mb-4'>
           <input
             className='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500  shadow-md'
-            id='inline-email'
+            name='email'
+            value={email}
             type='text'
             placeholder='Email'
+            onChange={e => onChange(e)}
+            required
           />
+          <p className='mt-1 text-xs'>
+            This site uses Gravatar. So if you want a profile image, use a
+            gravatar email.
+          </p>
         </div>
         <div className='md:flex md:items-center mb-6'>
           <input
             className='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500  shadow-md'
-            id='inline-username'
+            name='password'
             type='password'
+            value={password}
+            onChange={e => onChange(e)}
             minLength='6'
             placeholder='Password'
           />
@@ -42,8 +72,10 @@ const Register = () => {
         <div className='md:flex md:items-center mb-6'>
           <input
             className='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 shadow-md'
-            id='inline-username2'
+            name='password2'
             type='password'
+            value={password2}
+            onChange={e => onChange(e)}
             minLength='6'
             placeholder='Confirm password'
           />
@@ -53,10 +85,10 @@ const Register = () => {
           <div className='md:w-1/3'></div>
           <div className='md:w-2/3'>
             <button
-              className='shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded'
-              type='button'
+              className='shadow  bg-teal-500 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-1 px-3 rounded'
+              type='submit'
             >
-              Sign Up
+              Register
             </button>
           </div>
         </div>
