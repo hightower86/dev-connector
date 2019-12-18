@@ -61,10 +61,6 @@ const Login = () => {
             onChange={e => onChange(e)}
             required
           />
-          <p className='mt-1 text-xs'>
-            This site uses Gravatar. So if you want a profile image, use a
-            gravatar email.
-          </p>
         </div>
         <div className='md:flex md:items-center mb-6'>
           <input
@@ -82,7 +78,7 @@ const Login = () => {
         </div>
 
         <div className='md:flex md:items-center'>
-          <div className='md:w-1/3'></div>
+          {/* <div className='md:w-1/3'></div> */}
           <div className='md:w-2/3'>
             <button
               className='shadow  bg-teal-500 hover:bg-teal-400 
