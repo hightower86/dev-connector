@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Landing = () => {
   return (
-    <div className='flex container mx-auto rounded-lg  h-64 bg-gray-500 my-8 text-center'>
+    <div className='flex container mx-auto my-8 rounded-lg  h-64 bg-gray-300 shadow-lg text-center'>
       <div className='flex flex-col  justify-center mx-auto'>
         <h1 className=' text-5xl mx-auto'>Developer Connector</h1>
         <p className='text-lg'>
