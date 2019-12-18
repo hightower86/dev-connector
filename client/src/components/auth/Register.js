@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const Register = () => {
@@ -51,7 +52,7 @@ const Register = () => {
         <div className='md:flex md:items-center mb-6'>
           <input
             className='bg-gray-200 appearance-none border-2 
-            border-gray-200 rounded w-full py-2 px-4 text-gray-700 
+            border-gray-200 rounded w-full py-2 px-4 text-gray-800 
             leading-tight focus:outline-none focus:bg-white 
             focus:border-teal-500  shadow-md'
             name='name'
@@ -67,7 +68,7 @@ const Register = () => {
           <input
             className='bg-gray-200 appearance-none border-2 
             border-gray-200 rounded w-full py-2 px-4 
-            text-gray-700 leading-tight focus:outline-none 
+            text-gray-800 leading-tight focus:outline-none 
             focus:bg-white focus:border-teal-500  shadow-md'
             name='email'
             value={email}
@@ -85,7 +86,7 @@ const Register = () => {
           <input
             className='bg-gray-200 appearance-none border-2 
             border-gray-200 rounded w-full py-2 px-4 
-            text-gray-700 leading-tight focus:outline-none 
+            text-gray-800 leading-tight focus:outline-none 
             focus:bg-white focus:border-teal-500  shadow-md'
             name='password'
             type='password'
@@ -99,7 +100,7 @@ const Register = () => {
           <input
             className='bg-gray-200 appearance-none border-2 
             border-gray-200 rounded w-full py-2 px-4 
-            text-gray-700 leading-tight 
+            text-gray-800 leading-tight 
             focus:outline-none focus:bg-white 
             focus:border-teal-500 shadow-md'
             name='password2'
@@ -122,6 +123,12 @@ const Register = () => {
             >
               Register
             </button>
+            <p className='mt-4'>
+              Already have an account?{' '}
+              <Link to='/login' className='text-teal-600'>
+                Sign in
+              </Link>
+            </p>
           </div>
         </div>
       </form>
