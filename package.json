@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "concurrently": "^5.0.1",
-    "nodemon": "^1.19.4"
+    "nodemon": "^1.19.4",
+    "redux-logger": "^3.0.6"
   }
 }
