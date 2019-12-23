@@ -13,7 +13,7 @@ const Alert = ({ alerts, removeAlert }) => (
     {alerts !== null &&
       alerts.length > 0 &&
       alerts.map(({ msg, alertType, id }) => (
-        <CSSTransition classNames='alert' timeout={500}>
+        <CSSTransition classNames='alert' timeout={1000}>
           <div
             className='container mx-auto mt-10 w-full max-w-sm
                    bg-red-100 border border-red-400 text-red-700 
