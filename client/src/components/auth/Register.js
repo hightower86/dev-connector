@@ -122,7 +122,7 @@ const Register = ({ setAlert }) => {
             <button
               className='shadow  bg-teal-500 hover:bg-teal-400 
               focus:shadow-outline focus:outline-none text-white 
-              py-2 px-3 rounded'
+              py-2 px-3 rounded '
               type='submit'
             >
               Register

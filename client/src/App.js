@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { TransitionGroup } from 'react-transition-group';
 import './css/tailwind.css';
 
 import Navbar from './components/layout/Navbar';
@@ -20,7 +21,9 @@ const App = () => {
           <Navbar className='' />
           <Route exact path='/' component={Landing} />
           <section className='container mx-auto'>
+            {/* <TransitionGroup className='transition-group'> */}
             <Alert />
+            {/* </TransitionGroup> */}
             <Switch>
               <Route exact path='/login' component={Login} />
               <Route exact path='/register' component={Register} />
