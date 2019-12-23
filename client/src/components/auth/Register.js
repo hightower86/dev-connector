@@ -1,11 +1,11 @@
 import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert, register }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,23 +24,7 @@ const Register = ({ setAlert }) => {
       console.log('Passwords do not match', 'danger');
       setAlert('Passwords do not match', 'danger');
     } else {
-      const newUser = {
-        name,
-        email,
-        password
-      };
-
-      try {
-        const config = { headers: { 'Content-Type': 'application/json' } };
-
-        const body = JSON.stringify(newUser);
-
-        const res = await axios.post('/api/users', body, config);
-
-        console.log(res.data);
-      } catch (err) {
-        console.log(err.response.data);
-      }
+      register({ name, email, password });
     }
   };
 
@@ -64,7 +48,6 @@ const Register = ({ setAlert }) => {
             value={name}
             placeholder='Name'
             onChange={e => onChange(e)}
-            required
           />
           {/* </div> */}
         </div>
@@ -79,7 +62,6 @@ const Register = ({ setAlert }) => {
             type='text'
             placeholder='Email'
             onChange={e => onChange(e)}
-            required
           />
           <p className='mt-1 text-xs'>
             This site uses Gravatar. So if you want a profile image, use a
@@ -140,6 +122,7 @@ const Register = ({ setAlert }) => {
   );
 };
 Register.propTypes = {
-  setAlert: PropTypes.func.isRequired
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired
 };
-export default connect(null, { setAlert })(Register);
+export default connect(null, { setAlert, register })(Register);

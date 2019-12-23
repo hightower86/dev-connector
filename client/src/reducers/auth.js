@@ -1,4 +1,4 @@
-import { REGISTER_FAIL, REGISTER_SUCCESS } from './types';
+import { REGISTER_FAIL, REGISTER_SUCCESS } from '../actions/types';
 
 const initialState = {
   token: localStorage.getItem('token'),
@@ -7,7 +7,7 @@ const initialState = {
   user: null
 };
 
-export default (state = initialState, action) => {
+export default function(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
     case REGISTER_FAIL:
@@ -18,4 +18,4 @@ export default (state = initialState, action) => {
     default:
       return state;
   }
-};
+}

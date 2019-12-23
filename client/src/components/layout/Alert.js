@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  TransitionGroup,
-  CSSTransition,
-  Transition
-} from 'react-transition-group';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { removeAlert } from '../../actions/alert';
