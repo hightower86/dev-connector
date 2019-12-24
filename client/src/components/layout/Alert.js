@@ -9,7 +9,7 @@ const Alert = ({ alerts, removeAlert }) => (
     {alerts !== null &&
       alerts.length > 0 &&
       alerts.map(({ msg, alertType, id }) => (
-        <CSSTransition classNames='alert' timeout={1000}>
+        <CSSTransition classNames='alert' timeout={1000} key={id}>
           <div
             className='container mx-auto mt-10 w-full max-w-sm
                    bg-red-100 border border-red-400 text-red-700 
@@ -17,7 +17,6 @@ const Alert = ({ alerts, removeAlert }) => (
             role='alert'
             key={id}
           >
-            {/* <strong className='font-bold'>Attention!</strong> */}
             <span className='block sm:inline'>{msg}</span>
             <span className='absolute top-0 bottom-0 right-0 px-4 py-3'>
               <svg

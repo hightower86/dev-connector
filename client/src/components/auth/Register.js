@@ -21,7 +21,7 @@ const Register = ({ setAlert, register }) => {
   const onSubmit = async e => {
     e.preventDefault();
     if (password !== password2) {
-      console.log('Passwords do not match', 'danger');
+      //console.log('Passwords do not match', 'danger');
       setAlert('Passwords do not match', 'danger');
     } else {
       register({ name, email, password });
@@ -49,7 +49,6 @@ const Register = ({ setAlert, register }) => {
             placeholder='Name'
             onChange={e => onChange(e)}
           />
-          {/* </div> */}
         </div>
         <div className='mb-4'>
           <input

@@ -1,13 +1,13 @@
 {
-  "name": "hockey-connector",
+  "name": "dev-connector",
   "version": "1.0.0",
-  "description": "Social network for hockey players",
+  "description": "Social network for developers",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"yarn server\" \"yarn client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "license": "MIT",
   "dependencies": {
@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "concurrently": "^5.0.1",
+    "cors": "^2.8.5",
     "nodemon": "^1.19.4",
     "redux-logger": "^3.0.6"
   }
