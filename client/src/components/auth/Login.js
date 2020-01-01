@@ -1,43 +1,23 @@
 import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { login } from '../../actions/auth';
 import axios from 'axios';
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    name: '',
     email: '',
-    password: '',
-    password2: ''
+    password: ''
   });
 
-  const { name, email, password, password2 } = formData;
+  const { email, password } = formData;
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = async e => {
     e.preventDefault();
-    if (password !== password2) {
-      console.log('Passwords do not match');
-    } else {
-      const newUser = {
-        name,
-        email,
-        password
-      };
 
-      try {
-        const config = { headers: { 'Content-Type': 'application/json' } };
-
-        const body = JSON.stringify(newUser);
-
-        const res = await axios.post('/api/users', body, config);
-
-        console.log(res.data);
-      } catch (err) {
-        console.log(err.response.data);
-      }
-    }
+    login(email, password);
   };
 
   return (
