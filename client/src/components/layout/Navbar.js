@@ -9,7 +9,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul className=' flex items-center '>
       <li className='mr-3 uppercase tracking-wide hover:text-white cursor-pointer'>
-        <Link to='!#' onClick={logout}>
+        <Link to='/' onClick={logout}>
           Logout
         </Link>
       </li>
