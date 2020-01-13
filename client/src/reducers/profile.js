@@ -6,3 +6,23 @@ const initialState = {
   isLoading: true,
   error: {}
 };
+
+export default function(state = initialState, action) {
+  switch ({ type, payload }) {
+    case GET_PROFILE:
+      return {
+        ...state,
+        profile: payload,
+        loading: false
+      };
+    case PROFILE_ERROR:
+      return {
+        ...state,
+        error: payload,
+        loading: false
+      };
+
+    default:
+      return state;
+  }
+}

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { Profiler } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getUserProfile } from '../../actions/profile';
 
 const Dashboard = props => {
   return (
@@ -9,6 +11,15 @@ const Dashboard = props => {
   );
 };
 
-Dashboard.propTypes = {};
+Dashboard.propTypes = {
+  getUserProfile: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired
+};
 
-export default Dashboard;
+const mapStateToProps = state => {
+  auth: state.auth;
+  profile: state.profile;
+};
+
+export default connect(mapStateToProps, { getUserProfile })(Dashboard);
