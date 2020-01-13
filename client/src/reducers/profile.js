@@ -3,12 +3,12 @@ import { GET_PROFILE, PROFILE_ERROR } from '../actions/types';
 const initialState = {
   profile: null,
   profiles: [],
-  isLoading: true,
+  loading: true,
   error: {}
 };
 
-export default function(state = initialState, action) {
-  switch ({ type, payload }) {
+export default function(state = initialState, { type, payload }) {
+  switch (type) {
     case GET_PROFILE:
       return {
         ...state,
