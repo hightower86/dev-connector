@@ -12,7 +12,7 @@ const Dashboard = ({ getUserProfile, auth, profile }) => {
   return (
     <div className='container mx-auto mt-10 w-full max-w-sm'>
       <h2 className='text-5xl'>Dashboard</h2>
-      <p>some stuff</p>
+      <p>{JSON.stringify(profile)}</p>
     </div>
   );
 };

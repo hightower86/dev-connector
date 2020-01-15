@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
+import Dashboard from '../dashboard/Dashboard';
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   //const propTypes = PropTypes();
   const authLinks = (
     <ul className=' flex items-center '>
+      <li className='mr-3 uppercase tracking-wide hover:text-white cursor-pointer'>
+        <Link to='/dashboard'>Dashboard</Link>
+      </li>
       <li className='mr-3 uppercase tracking-wide hover:text-white cursor-pointer'>
         <Link to='/' onClick={logout}>
           Logout
