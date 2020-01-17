@@ -1,19 +1,41 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getUserProfile } from '../../actions/profile';
+import Spinner from '../layout/Spinner';
 
-const Dashboard = ({ getUserProfile, auth, profile }) => {
+const Dashboard = ({
+  getUserProfile,
+  auth: { user },
+  profile: { profile, loading }
+}) => {
   useEffect(() => {
     getUserProfile();
   }, []);
   console.log(profile);
 
-  return (
-    <div className='container mx-auto mt-10 w-full max-w-sm'>
-      <h2 className='text-5xl'>Dashboard</h2>
-      <p>{JSON.stringify(profile)}</p>
-    </div>
+  return loading && profile === null ? (
+    <Spinner />
+  ) : (
+    <Fragment>
+      <div className='container text-center '>
+        <h1 className='text-4xl text-blue-700'>Dashboard</h1>
+        <p className='text-lg'>Welcome, {user && user.name}</p>
+        {profile !== null ? (
+          <Fragment>
+            <p>Has a profile</p>
+          </Fragment>
+        ) : (
+          <Fragment>
+            You have not yet setup a profile. Please, add some info.
+            <button className=' block mt-6 mx-auto border-black border-2 border-solid px-2 py-1'>
+              <Link to='/create-profile'>create profile</Link>
+            </button>
+          </Fragment>
+        )}
+      </div>
+    </Fragment>
   );
 };
 

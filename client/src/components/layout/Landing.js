@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
+import Spinner from './Spinner';
 import PropTypes from 'prop-types';
 
 const Landing = ({ isAuthenticated }) => {
