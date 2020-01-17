@@ -694,6 +694,54 @@ video {
   }
 }
 
+.iselect {
+  display: block;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 100%;
+  background-color: #cbd5e0;
+  border-width: 1px;
+  border-color: #edf2f7;
+  color: #4a5568;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-right: 2rem;
+  border-radius: 0.25rem;
+  line-height: 1.25;
+}
+
+.iselect:focus {
+  outline: 0;
+  background-color: #fff;
+  border-color: #a0aec0;
+}
+
+.iinput {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: block;
+  width: 100%;
+  background-color: #edf2f7;
+  color: #4a5568;
+  border-width: 1px;
+  border-color: #cbd5e0;
+  border-radius: 0.25rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.25;
+}
+
+.iinput:focus {
+  outline: 0;
+  background-color: #fff;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

@@ -31,10 +31,10 @@ const App = () => {
           <Route exact path='/' component={Landing} />
           <section className='container mx-auto'>
             <Alert />
-            <Switch>
-              <PrivateRoute exact path='/dashboard' component={Dashboard} />
+            <Switch> 
               <Route exact path='/login' component={Login} />
               <Route exact path='/register' component={Register} />
+              <PrivateRoute exact path='/dashboard' component={Dashboard} />
               <Route exact path='/create-profile' component={CreateProfile} />
             </Switch>
           </section>

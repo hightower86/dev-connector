@@ -2,7 +2,29 @@
 
 @tailwind components;
 
+.iselect {
+  @apply block appearance-none w-full bg-gray-400 border 
+  border-gray-200 text-gray-700 py-1 px-4 pr-8  
+  rounded leading-tight;
+}
+
+.iselect:focus {
+  @apply outline-none bg-white border-gray-500;
+}
+
+.iinput {
+  @apply appearance-none block w-full bg-gray-200
+       text-gray-700 border border-gray-400 rounded py-1 px-4 
+       leading-tight ;
+}
+
+.iinput:focus {
+  @apply outline-none bg-white;
+}
+
 @tailwind utilities;
+
+
 
 .alert-enter {
   opacity: 0;
