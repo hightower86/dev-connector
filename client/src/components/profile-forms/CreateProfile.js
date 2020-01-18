@@ -17,6 +17,7 @@ const CreateProfile = props => {
     twitter: '',
     linkedin: ''
   });
+  const [displaySocialInputs, toggleSocialInputs] = useState(false)
 
   const {
     company,
@@ -34,6 +35,15 @@ const CreateProfile = props => {
   } = formData;
 
   return <Fragment>
+  <div className='container mx-auto text-center'>
+  <h1 className='text-indigo-500 text-3xl'>Create Your Profile</h1>
+			<p className='lead'>
+				<i className='fas fa-user' /> Let's get some information to make your
+				profile stand out
+			</p>
+			<small>* = required field</small>
+      </div>
+
 <form className="w-full max-w-lg mx-auto mt-4">
     
   <div className='relative'>
@@ -89,6 +99,17 @@ const CreateProfile = props => {
       placeholder="Github UserName"/>
         <p className="text-gray-700 text-xs italic mb-2">
         If you want your latest repos and a Github link, include your username
+        </p>
+
+        <textarea
+        className='iinput'
+						placeholder='A short bio of yourself'
+						name='bio'
+						value=''
+						onChange={e => console.log(e)}
+					/>
+        <p className="text-gray-700 text-xs italic mb-2">
+        Tell us little about yourself
         </p>
   
 
