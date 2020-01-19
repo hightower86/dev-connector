@@ -15,16 +15,24 @@
 .iinput {
   @apply appearance-none block w-full bg-gray-200
        text-gray-700 border border-gray-400 rounded py-1 px-4 
-       leading-tight ;
+       leading-tight;
 }
 
 .iinput:focus {
   @apply outline-none bg-white;
 }
 
+.btn {
+  @apply shadow bg-teal-500 text-white py-2 px-3 rounded;
+}
+.btn:focus {
+  @apply shadow-outline outline-none;
+}
+.btn:hover {
+  @apply bg-teal-400;
+}
+
 @tailwind utilities;
-
-
 
 .alert-enter {
   opacity: 0;
