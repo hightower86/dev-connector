@@ -34,6 +34,14 @@ const CreateProfile = props => {
     linkedin
   } = formData;
 
+  const onChange = e => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+  console.log(JSON.stringify(formData));
+
   return (
     <Fragment>
       <div className='container mx-auto text-center'>
@@ -47,7 +55,12 @@ const CreateProfile = props => {
 
       <form className='w-full max-w-lg mx-auto mt-4'>
         <div className='relative'>
-          <select className='iselect' id='grid-state'>
+          <select
+            name='status'
+            className='iselect'
+            value={status}
+            onChange={e => onChange(e)}
+          >
             <option>* Select your professional status</option>
             <option>Junior developer</option>
             <option>Middle developer</option>
@@ -70,34 +83,33 @@ const CreateProfile = props => {
         <p className='text-gray-700 text-xs italic mb-2'>
           Give us an idea where you are at in your career
         </p>
-        {/* <div className="flex flex-wrap -mx-3 mb-4"> */}
-        {/* <div className="w-full md:w-1/2 px-3 mb-4 md:mb-0"> */}
         <input
+          name='company'
+          onChange={e => onChange(e)}
+          value={company}
           className='iinput'
-          // id='grid-first-name'
           type='text'
           placeholder='Company'
         />
         <p className='text-gray-700 text-xs italic mb-2'>
           Could be your own company or one you work for
         </p>
-        {/* </div> */}
-        {/* <div className="w-full md:w-1/2 px-3"> */}
-
         <input
+          name='website'
+          onChange={e => onChange(e)}
+          value={website}
           className='iinput'
-          // id='grid-last-name'
           type='text'
           placeholder='Website'
         />
         <p className='text-gray-700 text-xs italic mb-2'>
           Could be your own or company website
         </p>
-        {/* </div> */}
-        {/* </div> */}
         <input
+          name='location'
+          onChange={e => onChange(e)}
+          value={location}
           className='iinput'
-          // id='grid-last-name'
           type='text'
           placeholder='Location'
         />
@@ -105,8 +117,10 @@ const CreateProfile = props => {
           City & state suggested
         </p>
         <input
+          name='skills'
+          onChange={e => onChange(e)}
+          value={skills}
           className='iinput'
-          // id='grid-last-name'
           type='text'
           placeholder='* Skills'
         />
@@ -115,8 +129,10 @@ const CreateProfile = props => {
           etc.)
         </p>
         <input
+          name='githubusername'
+          onChange={e => onChange(e)}
+          value={githubusername}
           className='iinput'
-          // id='grid-last-name'
           type='text'
           placeholder='Github UserName'
         />
@@ -124,11 +140,13 @@ const CreateProfile = props => {
           If you want your latest repos and a Github link, include your username
         </p>
 
-        {/* <textarea
+        <textarea
+          name='bio'
+          onChange={e => onChange(e)}
+          value={bio}
           className='iinput'
           placeholder='A short bio of yourself'
-          name='bio'
-        /> */}
+        />
         <p className='text-gray-700 text-xs italic mb-2'>
           Tell us little about yourself
         </p>
@@ -136,8 +154,7 @@ const CreateProfile = props => {
           <button
             type='button'
             onClick={() => toggleSocialInputs(!displaySocialInputs)}
-            className='bg-gray-200 text-sm text-center py-0 px-4 mr-4 focus:border-black focus:border-solid'
-            //onClick={() => toggleSocialInputs(!displaySocialInputs)}
+            className='bg-gray-200 text-sm text-center py-0 px-4 mr-4 focus:outline-none'
           >
             Add Social Network links
           </button>
@@ -146,48 +163,63 @@ const CreateProfile = props => {
         {displaySocialInputs && (
           <Fragment>
             <div className='flex mt-4'>
-              <div className='py-0 px-2 bg-gray-500 mr-2 rounded-sm'>tw</div>
+              <i className='fab fa-twitter-square fa-2x mr-2 text-blue-400'></i>
+              {/* <div className='py-0 px-2 bg-gray-500 mr-2 rounded-sm'>tw</div> */}
               <input
+                name='twitter'
+                onChange={e => onChange(e)}
+                value={twitter}
                 className='iinput'
-                // id='grid-last-name'
                 type='text'
                 placeholder='Twitter URL'
               />
             </div>
             <div className='flex mt-4'>
-              <div className='py-0 px-2 bg-gray-500 mr-2 rounded-sm'>tw</div>
+              <i className='fab fa-facebook-square fa-2x mr-2 text-blue-400'></i>
+              {/* <div className='py-0 px-2 bg-gray-500 mr-2 rounded-sm'>tw</div> */}
               <input
+                name='facebook'
+                onChange={e => onChange(e)}
+                value={facebook}
                 className='iinput'
-                // id='grid-last-name'
                 type='text'
                 placeholder='Facebook URL'
               />
             </div>
             <div className='flex mt-4'>
-              <div className='py-0 px-2 bg-gray-500 mr-2 rounded-sm'>tw</div>
+              <i className='fab fa-youtube-square fa-2x mr-2 text-red-500'></i>
+              {/* <div className='py-0 px-2 bg-gray-500 mr-2 rounded-sm'>tw</div> */}
               <input
+                name='youtube'
+                onChange={e => onChange(e)}
+                value={youtube}
                 className='iinput'
-                // id='grid-last-name'
                 type='text'
                 placeholder='Youtube URL'
               />
             </div>
             <div className='flex mt-4'>
-              <div className='py-0 px-2 bg-gray-500 mr-2 rounded-sm'>tw</div>
+              <i className='fab fa-linkedin fa-2x mr-2 text-blue-400'></i>
+              {/* <div className='py-0 px-2 bg-gray-500 mr-2 rounded-sm'>tw</div> */}
               <input
+                name='linkedin'
+                onChange={e => onChange(e)}
+                value={linkedin}
                 className='iinput'
-                // id='grid-last-name'
                 type='text'
                 placeholder='LinkedIn URL'
               />
             </div>
             <div className='flex mt-4'>
-              <div className='py-0 px-2 bg-gray-500 mr-2 rounded-sm'>tw</div>
+              <i className='fab fa-instagram fa-2x mr-2 text-red-400'></i>
+              {/* <div className='py-0 px-2 bg-gray-500 mr-2 rounded-sm'>tw</div> */}
               <input
+                name='instagram'
+                onChange={e => onChange(e)}
+                value={instagram}
                 className='iinput'
-                // id='grid-last-name'
                 type='text'
-                placeholder='Instagramm URL'
+                placeholder='Instagram URL'
               />
             </div>
             <div className='buttons flex my-4'>
