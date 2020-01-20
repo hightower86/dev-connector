@@ -18,7 +18,7 @@ const CreateProfile = props => {
     linkedin: ''
   });
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
-
+  //console.log(displaySocialInputs);
   const {
     company,
     website,
@@ -74,7 +74,7 @@ const CreateProfile = props => {
         {/* <div className="w-full md:w-1/2 px-3 mb-4 md:mb-0"> */}
         <input
           className='iinput'
-          id='grid-first-name'
+          // id='grid-first-name'
           type='text'
           placeholder='Company'
         />
@@ -86,7 +86,7 @@ const CreateProfile = props => {
 
         <input
           className='iinput'
-          id='grid-last-name'
+          // id='grid-last-name'
           type='text'
           placeholder='Website'
         />
@@ -97,7 +97,7 @@ const CreateProfile = props => {
         {/* </div> */}
         <input
           className='iinput'
-          id='grid-last-name'
+          // id='grid-last-name'
           type='text'
           placeholder='Location'
         />
@@ -106,7 +106,7 @@ const CreateProfile = props => {
         </p>
         <input
           className='iinput'
-          id='grid-last-name'
+          // id='grid-last-name'
           type='text'
           placeholder='* Skills'
         />
@@ -116,7 +116,7 @@ const CreateProfile = props => {
         </p>
         <input
           className='iinput'
-          id='grid-last-name'
+          // id='grid-last-name'
           type='text'
           placeholder='Github UserName'
         />
@@ -124,71 +124,83 @@ const CreateProfile = props => {
           If you want your latest repos and a Github link, include your username
         </p>
 
-        <textarea
+        {/* <textarea
           className='iinput'
           placeholder='A short bio of yourself'
           name='bio'
-          value=''
-          onChange={e => console.log(e)}
-        />
+        /> */}
         <p className='text-gray-700 text-xs italic mb-2'>
           Tell us little about yourself
         </p>
         <div className='flex'>
-          <button className='bg-gray-200 text-sm text-center py-0 px-4 mr-4'>
+          <button
+            type='button'
+            onClick={() => toggleSocialInputs(!displaySocialInputs)}
+            className='bg-gray-200 text-sm text-center py-0 px-4 mr-4 focus:border-black focus:border-solid'
+            //onClick={() => toggleSocialInputs(!displaySocialInputs)}
+          >
             Add Social Network links
           </button>
           <div className=' py-1 px-2'>Optional</div>
         </div>
-        <div className='flex mt-2'>
-          <div className='py-0 px-2 bg-gray-500 mr-2 rounded-lg'>tw</div>
-          <input
-            className='iinput'
-            id='grid-last-name'
-            type='text'
-            placeholder='Twitter URL'
-          />
-        </div>
-        <div className='flex mt-2'>
-          <div className='py-0 px-2 bg-gray-500 mr-2 rounded-lg'>tw</div>
-          <input
-            className='iinput'
-            id='grid-last-name'
-            type='text'
-            placeholder='Facebook URL'
-          />
-        </div>
-        <div className='flex mt-2'>
-          <div className='py-0 px-2 bg-gray-500 mr-2 rounded-lg'>tw</div>
-          <input
-            className='iinput'
-            id='grid-last-name'
-            type='text'
-            placeholder='Youtube URL'
-          />
-        </div>
-        <div className='flex mt-2'>
-          <div className='py-0 px-2 bg-gray-500 mr-2 rounded-lg'>tw</div>
-          <input
-            className='iinput'
-            id='grid-last-name'
-            type='text'
-            placeholder='LinkedIn URL'
-          />
-        </div>
-        <div className='flex mt-2'>
-          <div className='py-0 px-2 bg-gray-500 mr-2 rounded-lg'>tw</div>
-          <input
-            className='iinput'
-            id='grid-last-name'
-            type='text'
-            placeholder='Instagramm URL'
-          />
-        </div>
-        <div className='buttons flex my-4'>
-          <button className='btn mr-4 px-6'>Go</button>
-          <button className='btn bg-gray-500 px-6'>Stop</button>
-        </div>
+        {displaySocialInputs && (
+          <Fragment>
+            <div className='flex mt-4'>
+              <div className='py-0 px-2 bg-gray-500 mr-2 rounded-sm'>tw</div>
+              <input
+                className='iinput'
+                // id='grid-last-name'
+                type='text'
+                placeholder='Twitter URL'
+              />
+            </div>
+            <div className='flex mt-4'>
+              <div className='py-0 px-2 bg-gray-500 mr-2 rounded-sm'>tw</div>
+              <input
+                className='iinput'
+                // id='grid-last-name'
+                type='text'
+                placeholder='Facebook URL'
+              />
+            </div>
+            <div className='flex mt-4'>
+              <div className='py-0 px-2 bg-gray-500 mr-2 rounded-sm'>tw</div>
+              <input
+                className='iinput'
+                // id='grid-last-name'
+                type='text'
+                placeholder='Youtube URL'
+              />
+            </div>
+            <div className='flex mt-4'>
+              <div className='py-0 px-2 bg-gray-500 mr-2 rounded-sm'>tw</div>
+              <input
+                className='iinput'
+                // id='grid-last-name'
+                type='text'
+                placeholder='LinkedIn URL'
+              />
+            </div>
+            <div className='flex mt-4'>
+              <div className='py-0 px-2 bg-gray-500 mr-2 rounded-sm'>tw</div>
+              <input
+                className='iinput'
+                // id='grid-last-name'
+                type='text'
+                placeholder='Instagramm URL'
+              />
+            </div>
+            <div className='buttons flex my-4'>
+              <button className='btn my-0 mr-4 px-6'>Submit</button>
+              <button
+                type='button'
+                className='btn my-0 bg-gray-500 px-6 hover:bg-gray-600'
+              >
+                Go Back
+              </button>
+            </div>
+          </Fragment>
+        )}
       </form>
     </Fragment>
   );
