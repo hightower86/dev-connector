@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import { GET_PROFILE, PROFILE_ERROR } from '../actions/types';
 
+// Get current users profile
 export const getUserProfile = () => async dispatch => {
   try {
     const res = await axios.get('/api/profile/me');
@@ -19,6 +20,40 @@ export const getUserProfile = () => async dispatch => {
   }
 };
 
+// Create or update profile
+export const createProfile = (
+  formdata,
+  history,
+  edit = false
+) => async dispatch => {
+  const config = {
+    'Content-Type': 'application/json'
+  };
+  try {
+    const res = await axios.post('api/profile', formData, config);
+
+    dispatch({
+      type: GET_PROFILE,
+      payload: res.data
+    });
+
+    dispatch(setAlert(edit ? 'Profile updated' : 'Profile created'));
+
+    if (!edit) {
+      history.push('/dashboard');
+    }
+  } catch (err) {
+    const errors = err.response.data.errors;
+    if (errors) {
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    }
+
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
 // Get all profiles
 export const getProfiles = () => async dispatch => {
   dispatch({ type: CLEAR_PROFILE });
