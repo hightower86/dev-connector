@@ -1,8 +1,11 @@
 import React, { Fragment, useState } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { createProfile } from '../../actions/profile';
+import { setAlert } from '../../actions/alert';
 
-const CreateProfile = props => {
+const CreateProfile = ({ createProfile, history }) => {
   const [formData, setFormData] = useState({
     company: '',
     website: '',
@@ -40,6 +43,10 @@ const CreateProfile = props => {
       [e.target.name]: e.target.value
     });
   };
+  const onSubmit = e => {
+    e.preventDefault();
+    createProfile(formData, history);
+  };
   console.log(JSON.stringify(formData));
 
   return (
@@ -53,7 +60,10 @@ const CreateProfile = props => {
         <small>* = required field</small>
       </div>
 
-      <form className='w-full max-w-lg mx-auto mt-4'>
+      <form
+        className='w-full max-w-lg mx-auto mt-4'
+        onSubmit={e => onSubmit(e)}
+      >
         <div className='relative'>
           <select
             name='status'
@@ -238,6 +248,8 @@ const CreateProfile = props => {
   );
 };
 
-CreateProfile.propTypes = {};
+CreateProfile.propTypes = {
+  createProfile: PropTypes.func.isRequired
+};
 
-export default CreateProfile;
+export default connect(null, { createProfile })(withRouter(CreateProfile));

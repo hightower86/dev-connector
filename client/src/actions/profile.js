@@ -1,7 +1,12 @@
 import axios from 'axios';
-//import { setAlert } from './alert';
+import { setAlert } from './alert';
 
-import { GET_PROFILE, PROFILE_ERROR } from '../actions/types';
+import {
+  GET_PROFILE,
+  PROFILE_ERROR,
+  CLEAR_PROFILE,
+  GET_PROFILES
+} from '../actions/types';
 
 // Get current users profile
 export const getUserProfile = () => async dispatch => {
@@ -22,7 +27,7 @@ export const getUserProfile = () => async dispatch => {
 
 // Create or update profile
 export const createProfile = (
-  formdata,
+  formData,
   history,
   edit = false
 ) => async dispatch => {
