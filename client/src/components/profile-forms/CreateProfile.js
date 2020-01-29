@@ -136,13 +136,12 @@ const CreateProfile = ({ createProfile, history }) => {
         />
         <p className='text-gray-700 text-xs italic mb-2'>
           Please use comma separated values (eg. HTML, CSS, JavaScript, React,
-          etc.)
+          className='iinput' etc.)
         </p>
         <input
           name='githubusername'
           onChange={e => onChange(e)}
           value={githubusername}
-          className='iinput'
           type='text'
           placeholder='Github UserName'
         />
@@ -151,10 +150,10 @@ const CreateProfile = ({ createProfile, history }) => {
         </p>
 
         <textarea
+          className='iinput'
           name='bio'
           onChange={e => onChange(e)}
           value={bio}
-          className='iinput'
           placeholder='A short bio of yourself'
         />
         <p className='text-gray-700 text-xs italic mb-2'>
