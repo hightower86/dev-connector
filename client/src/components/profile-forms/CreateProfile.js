@@ -232,17 +232,18 @@ const CreateProfile = ({ createProfile, history }) => {
                 placeholder='Instagram URL'
               />
             </div>
-            <div className='buttons flex my-4'>
-              <button className='btn my-0 mr-4 px-6'>Submit</button>
-              <button
-                type='button'
-                className='btn my-0 bg-gray-500 px-6 hover:bg-gray-600'
-              >
-                Go Back
-              </button>
-            </div>
           </Fragment>
         )}
+        <div className='buttons flex my-4'>
+          <button className='btn my-0 mr-4 px-6'>Submit</button>
+          <Link
+            to='/dashboard'
+            type='button'
+            className='btn my-0 bg-gray-500 px-6 hover:bg-gray-600'
+          >
+            Go Back
+          </Link>
+        </div>
       </form>
     </Fragment>
   );
