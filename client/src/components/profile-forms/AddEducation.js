@@ -6,9 +6,9 @@ import { addEducation } from '../../actions/profile';
 
 const AddEducation = ({ addEducation, history }) => {
   const [formData, setFormData] = useState({
-    company: '',
-    title: '',
-    location: '',
+    school: '',
+    degree: '',
+    fieldofstudy: '',
     from: '',
     to: '',
     current: false,
@@ -17,17 +17,25 @@ const AddEducation = ({ addEducation, history }) => {
 
   const [toDateDisabled, toggleDisabled] = useState(false);
 
-  const { company, title, location, from, to, current, description } = formData;
+  const {
+    school,
+    degree,
+    fieldofstudy,
+    from,
+    to,
+    current,
+    description
+  } = formData;
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
   return (
     <Fragment>
       <div className='container mx-auto text-center'>
-        <h1 className=' text-3xl text-teal-700'>Add An Experience</h1>
+        <h1 className=' text-3xl text-teal-700'>Add your education</h1>
         <p className='lead'>
-          <i className='text-gray-700 text-xs italic mb-2' /> Add any
-          developer/programming positions that you have had in the past
+          <i className='text-gray-700 text-xs italic mb-2' /> Add any school or
+          bootcamp that you have attended
         </p>
         <small>* = required field</small>
       </div>
@@ -35,16 +43,16 @@ const AddEducation = ({ addEducation, history }) => {
         className='w-full max-w-lg mx-auto mt-4'
         onSubmit={e => {
           e.preventDefault();
-          addExperience(formData, history);
+          addEducation(formData, history);
         }}
       >
         <div className='mb-4'>
           <input
             className='iinput'
             type='text'
-            placeholder='* Job Title'
-            name='title'
-            value={title}
+            placeholder='* School or bootcamp'
+            name='school'
+            value={school}
             onChange={e => onChange(e)}
             required
           />
@@ -53,9 +61,9 @@ const AddEducation = ({ addEducation, history }) => {
           <input
             className='iinput'
             type='text'
-            placeholder='* Company'
-            name='company'
-            value={company}
+            placeholder='* Degree or sertificate'
+            name='degree'
+            value={degree}
             onChange={e => onChange(e)}
             required
           />
@@ -64,9 +72,9 @@ const AddEducation = ({ addEducation, history }) => {
           <input
             className='iinput'
             type='text'
-            placeholder='Location'
-            name='location'
-            value={location}
+            placeholder='Field of study'
+            name='fieldofstudy'
+            value={fieldofstudy}
             onChange={e => onChange(e)}
           />
         </div>
@@ -143,4 +151,3 @@ AddEducation.propTypes = {
 };
 
 export default connect(null, { addEducation })(withRouter(AddEducation));
-
