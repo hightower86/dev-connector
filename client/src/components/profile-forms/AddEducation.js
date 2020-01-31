@@ -104,7 +104,7 @@ const AddEducation = ({ addEducation, history }) => {
               }}
             />
 
-            <span className='text-sm'> Current Job</span>
+            <span className='text-sm'> Current </span>
           </label>
         </div>
         <div className='mb-4'>
@@ -126,7 +126,7 @@ const AddEducation = ({ addEducation, history }) => {
             name='description'
             cols='30'
             rows='5'
-            placeholder='Job Description'
+            placeholder='Program description'
             value={description}
             onChange={e => onChange(e)}
           />
